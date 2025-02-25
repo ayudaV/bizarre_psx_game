@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=12 format=3 uid="uid://cpdwlpungncrj"]
 
-[ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://player.tscn" id="1_att4b"]
+[ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
+[ext_resource type="PackedScene" uid="uid://ciqvttckdjvqq" path="res://objects/game_controller.tscn" id="1_yf481"]
 [ext_resource type="PackedScene" uid="uid://c0atrutvpyy4n" path="res://objects/flashlight.tscn" id="2_xsgnu"]
+[ext_resource type="PackedScene" uid="uid://b5ok4uv7svrlx" path="res://objects/npc.tscn" id="3_nd55t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6pp2b"]
 sky_top_color = Color(0.172833, 0.172833, 0.172833, 1)
@@ -20,7 +22,6 @@ background_mode = 2
 background_energy_multiplier = 0.5
 sky = SubResource("Sky_tam5d")
 reflected_light_source = 2
-ssao_enabled = true
 ssao_radius = 4.96
 ssao_intensity = 5.14
 ssao_detail = 1.36
@@ -49,6 +50,9 @@ metallic = 0.8
 roughness = 0.0
 
 [node name="World" type="Node3D"]
+
+[node name="game_controller" parent="." instance=ExtResource("1_yf481")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.57113, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wlcwn")
@@ -105,3 +109,6 @@ material = SubResource("StandardMaterial3D_ymnry")
 
 [node name="flashlight" parent="." instance=ExtResource("2_xsgnu")]
 transform = Transform3D(1, 0, 0, 0, -0.0871558, -0.996195, 0, 0.996195, -0.0871558, -0.978169, 1.04594, -3.28681)
+
+[node name="npc" parent="." instance=ExtResource("3_nd55t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11584, 2.78828)

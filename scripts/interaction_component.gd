@@ -23,8 +23,7 @@ func not_in_range():
  
 func on_interact():
 	if parent.visible:
-		Global.player.hold_obj(parent.name)
-		parent.visible = false
+		parent.interact()
 
 func connect_parent() -> void:
 	parent.add_user_signal("focused")
