@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/global_script.gd"
 
+[global_group]
+
+player=""
+
 [input]
 
 up={

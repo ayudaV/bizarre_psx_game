@@ -19,6 +19,8 @@ const SENSIBILITY = 0.003
 @onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
 @onready var stamina_bar_r: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_r
 
+@onready var quest_handler: QuestHandler = $camera_pivot/HUD/quests
+
 var holdable_objects = {}
 var holding_obj
 var init_obj_pos := Vector3()
@@ -40,8 +42,8 @@ var focus_rot := Vector3.ZERO
 var max_stamina = 100.0
 var stamina = max_stamina
 var stamina_rate = 20
-var min_run_stamina = 20
-var stamina_cooldown = 3
+var min_run_stamina = 0
+var stamina_cooldown = 2
 var curr_stamina_cooldown = 0
 
 var focus : CollisionShape3D
@@ -79,8 +81,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
 	
-	if stamina > min_run_stamina && Input.is_action_just_pressed("run"):
-		runing = !runing
+	if Input.is_action_pressed("run") && stamina > min_run_stamina:
+		runing = true
+	else:
+		runing = false
 	
 	if stamina <= 0:
 		runing = false
@@ -144,8 +148,8 @@ func _physics_process(delta: float) -> void:
 	if looking_obj && Input.is_action_just_pressed("interact"):
 		looking_obj.emit_signal("interacted")
 	
-	if focus:
-		camera_pivot.look_at(focus.global_position)
+	#if focus:
+		#camera_pivot.look_at(focus.global_position)
 	
 	move_and_slide()
 

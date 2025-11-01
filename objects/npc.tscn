@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dn2eaprkg88q4" path="res://scripts/interaction_component.gd" id="2_3kdkt"]
 [ext_resource type="Script" uid="uid://ck0h457cqth6y" path="res://dialogue/dialogue.gd" id="2_y626a"]
 [ext_resource type="Texture2D" uid="uid://dpxl6gl3ic0l1" path="res://icons/Keyboard & Mouse/Default/keyboard_e.png" id="3_dknca"]
-[ext_resource type="PackedScene" uid="uid://dm2uidna0mp50" path="res://scenes/dialog_ui.tscn" id="5_07jg7"]
+[ext_resource type="PackedScene" uid="uid://dm2uidna0mp50" path="res://scenes/dialogue_ui.tscn" id="5_07jg7"]
 
 [sub_resource type="Resource" id="Resource_u3smf"]
 script = ExtResource("2_y626a")
