@@ -1,49 +1,45 @@
 {
 	"random": { 
 		"text": [
-			"Salve fio",
+			"Salve",
 			"Tranquilo!",
-			"Pipoquinha com manteiga hmmm",
+			"Você vem sempre aqui?",
 			"Eu amo essa música",
 			"Derrubaram algo quente em mim",
-			"Que horas acaba seu turno? gatinho"
+			"Que horas acaba seu turno? gatinho",
+			"O banheiro desse lugar está imundo, acho que ninguem limpa faz dias",
+			"O guarda da entrada é gente boa"
 		],
-		"dialogues": {
-			"text": [
-				"Na moral tomara que funcione isso aqui",
-				"Concorda ou nem?"
-			],
-			"options": {
-				"Sim": "TODO",
-				"Não": "TODO"
-			}
-		}
 	},
 	"mao":{
 		"dialogues":{
 			"text":[
-				" aaaaaaaaa"
+				""
 			]
 		}
 	},
 	"carlao":{
 		"dialogues":{
 			"text":[
-				"ghdsfarewrstgfdsrewrsg"
+				"PARAR??? EU NÃO POSSO PARAR",
+				"AQUELA COISA ME DISSE PRA NÃO PARAR",
+				
 			]
 		}
 	},
 	"osmar":{
 		"dialogues":{
 			"text":[
-				"abcdefg"
+				"Eu quero ir embora, mas meu irmão não volta do banheiro nunca",
+				"Você trabalha aqui né? Poderia ir chamar meu irmão? Por favor?"
 			]
 		}
 	},
 	"thiago":{
 		"dialogues":{
 			"text":[
-				"gdfde"
+				"Eu tenho certeza que deixei meu chapéu em algum lugar por aqui...",
+				"Poderia me ajudar a encontrar meu chapéu?"
 			]
 		}
 	},
@@ -52,12 +48,11 @@
 			"text":[
 				"Finalmente você chegou, precisa parar de se atrasar desse jeito",
 				"já é quase hora de fechar, e quase toda a equipe ja foi embora",
-				"O lugar está uma bagunça, então precisamos que faça seu trabalho",
+				"O lugar está uma bagunça, então faça seu trabalho",
 				"Preciso que você recolha os lixos que os bêbabos deixaram",
 				"Depois limpe os banheiros e o armazêm",
 				"Por fim, expulse quem sobrou e tranque as portas",
 				"entendeu?"
-				
 			]
 		}
 	}

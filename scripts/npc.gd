@@ -26,7 +26,7 @@ func interact():
 		return
 	
 	if npc_id == "random":
-		dialogue_ui.add_dialogue(npc_name, [npc_dialogues["text"][randi()%6]], [])
+		dialogue_ui.add_dialogue(npc_name, [npc_dialogues["text"][randi() % len(npc_dialogues["text"])]], [])
 		return
 	
 	dialogue_ui.add_dialogue(npc_name, npc_dialogues["dialogues"]["text"], [])
