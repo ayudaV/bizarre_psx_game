@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c0atrutvpyy4n" path="res://objects/flashlight.tscn" id="3_y33cf"]
 [ext_resource type="Texture2D" uid="uid://dpxl6gl3ic0l1" path="res://icons/Keyboard & Mouse/Default/keyboard_e.png" id="4_n1vfi"]
 [ext_resource type="FontFile" uid="uid://dpgyfwitoblt7" path="res://fonts/XTypewriter-Regular.ttf" id="4_rbcv6"]
-[ext_resource type="Script" uid="uid://xmtvdn88fxpc" path="res://objects/quest_handler.gd" id="6_3rfka"]
+[ext_resource type="Script" uid="uid://xmtvdn88fxpc" path="res://objects/scripts/quest_handler.gd" id="6_3rfka"]
 [ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="7_4vq5b"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="7_i8sra"]
 
@@ -76,6 +76,9 @@ visible = false
 mesh = SubResource("QuadMesh_bldmp")
 
 [node name="Node3D" type="Node3D" parent="camera_pivot/camera"]
+
+[node name="pickup_point" type="Node3D" parent="camera_pivot/camera/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329, -0.211, -0.422)
 
 [node name="flashlight" parent="camera_pivot/camera/Node3D" instance=ExtResource("3_y33cf")]
 transform = Transform3D(1, 0, 0, 0, -0.246119, -0.969239, 0, 0.969239, -0.246119, 0.329165, -0.211009, -0.422173)

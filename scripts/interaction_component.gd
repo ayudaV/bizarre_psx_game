@@ -10,11 +10,11 @@ func _ready() -> void:
 	parent = get_parent()
 	connect_parent()
 
-func _process(delta: float) -> void:
-	pass
-
 func in_range():
 	if parent.visible:
+		if (parent.get("can_interact") == false):
+			return
+		
 		Global.ui_context.update_text(content)
 
 func not_in_range():

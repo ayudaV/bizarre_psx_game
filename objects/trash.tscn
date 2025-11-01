@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://brx3au423cy5e"]
+
+[ext_resource type="Script" uid="uid://bb1mq54eeuiqa" path="res://objects/scripts/pickable.gd" id="1_ir0rd"]
+[ext_resource type="PackedScene" uid="uid://cnpdr8ga21vx5" path="res://models/assets/TrashBag01/TrashBag01.glb" id="2_s8s1o"]
+[ext_resource type="Script" uid="uid://dn2eaprkg88q4" path="res://scripts/interaction_component.gd" id="3_ir0rd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fb3bb"]
+radius = 0.4
+
+[node name="Trash" type="Area3D"]
+script = ExtResource("1_ir0rd")
+item_name = "trash"
+
+[node name="TrashBag012" parent="." instance=ExtResource("2_s8s1o")]
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_ir0rd")
+content = "Trash"
+metadata/_custom_type_script = "uid://dn2eaprkg88q4"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016219974, 0.2544705, -0.09339246)
+shape = SubResource("SphereShape3D_fb3bb")

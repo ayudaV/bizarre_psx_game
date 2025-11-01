@@ -1,5 +1,4 @@
-extends CharacterBody3D
-
+class_name Player extends CharacterBody3D
 
 const WALK_SPEED = 3.0
 const RUN_SPEED = 5.0
@@ -15,16 +14,18 @@ const SENSIBILITY = 0.003
 
 @onready var holdable_parent: Node3D = $camera_pivot/camera/Node3D
 @onready var flashlight: Area3D = $camera_pivot/camera/Node3D/flashlight
+@onready var pickup_point: Node3D = $camera_pivot/camera/Node3D/pickup_point
 
 @onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
 @onready var stamina_bar_r: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_r
 @onready var quest_handler: QuestHandler = $camera_pivot/HUD/quests
 
 var holdable_objects = {}
-var holding_obj
+var holding_obj_parent: Node3D
+var holding_obj: Node3D
 var init_obj_pos := Vector3()
 
-const MIN_CAMX = deg_to_rad(-40)
+const MIN_CAMX = deg_to_rad(-60)
 const MAX_CAMX = deg_to_rad(60)
 
 const BOB_FREQ = 2.0
@@ -32,6 +33,9 @@ const BOB_AMP = 0.08
 var bob_time = 0.0
 
 var looking_obj
+var can_hold: bool:
+	get():
+		return holding_obj == null
 
 # Fov camera
 const BASE_FOV = 75.0
@@ -163,10 +167,28 @@ func _head_bob(time: float) -> Vector3:
 	
 	return pos
 
-func hold_obj(object_name: String) -> void:
+func hold_obj(object_name: String, obj_node: Node3D = null) -> void:
+	if (holding_obj != null):
+		return
+	
 	if holdable_objects.has(object_name.to_lower()):
 		var obj = holdable_objects[object_name]
-		obj.visible = true
-		init_obj_pos = obj.transform.origin
-		holding_obj = obj
-		
+		if (obj != null):
+			obj.visible = true
+			init_obj_pos = obj.transform.origin
+			holding_obj = obj
+	elif (obj_node != null):
+		if (obj_node.get("can_interact")):
+			obj_node.follow = pickup_point
+			obj_node.can_interact = false
+			holding_obj_parent = obj_node.get_parent_node_3d()
+			obj_node.reparent(pickup_point)
+			holding_obj = obj_node
+
+func drop_obj():
+	pass
+
+func delete_obj():
+	holding_obj.queue_free()
+	holding_obj = null
+	holding_obj_parent = null

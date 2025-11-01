@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=14 format=3 uid="uid://cpdwlpungncrj"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
 [ext_resource type="PackedScene" uid="uid://ciqvttckdjvqq" path="res://objects/game_controller.tscn" id="1_yf481"]
 [ext_resource type="PackedScene" uid="uid://c0atrutvpyy4n" path="res://objects/flashlight.tscn" id="2_xsgnu"]
 [ext_resource type="PackedScene" uid="uid://b5ok4uv7svrlx" path="res://objects/npc.tscn" id="3_nd55t"]
+[ext_resource type="PackedScene" uid="uid://brx3au423cy5e" path="res://objects/trash.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://ben7md06nc8go" path="res://objects/trash_can.tscn" id="6_dwbse"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6pp2b"]
 sky_top_color = Color(0.172833, 0.172833, 0.172833, 1)
@@ -112,3 +114,9 @@ transform = Transform3D(-0.907704, -0.418014, 0.0365715, 0, -0.0871558, -0.99619
 
 [node name="npc" parent="." instance=ExtResource("3_nd55t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11584, 2.78828)
+
+[node name="Trash" parent="." instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3962742, 0.009788739, -2.2932315)
+
+[node name="TrashCan" parent="." instance=ExtResource("6_dwbse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.646965, 0.49499, -3.4344826)

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cnpdr8ga21vx5"
-path="res://.godot/imported/TrashBag01.glb-62a9dc2f07237231592fb1943f4349cd.scn"
+uid="uid://dhvdwrm8wrxtg"
+path="res://.godot/imported/Teste_de_forma.glb-22268bd2d84d52c05121381e392a6cd0.scn"
 
 [deps]
 
-source_file="res://models/assets/TrashBag01/TrashBag01.glb"
-dest_files=["res://.godot/imported/TrashBag01.glb-62a9dc2f07237231592fb1943f4349cd.scn"]
+source_file="res://models/assets/Teste_de_forma.glb"
+dest_files=["res://.godot/imported/Teste_de_forma.glb-22268bd2d84d52c05121381e392a6cd0.scn"]
 
 [params]
 
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1
