@@ -29,5 +29,4 @@ func interact():
 		dialogue_ui.add_dialogue(npc_name, [npc_dialogues["text"][randi()%6]], [])
 		return
 	
-	
 	dialogue_ui.add_dialogue(npc_name, npc_dialogues["dialogues"]["text"], [])

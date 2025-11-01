@@ -8,7 +8,6 @@
 			"Derrubaram algo quente em mim",
 			"Que horas acaba seu turno? gatinho"
 		],
-		
 		"dialogues": {
 			"text": [
 				"Na moral tomara que funcione isso aqui",
@@ -20,18 +19,46 @@
 			}
 		}
 	},
-		"mao":{
-			"dialogues":{
-				"text":[
-					" aaaaaaaaa"
-				]
-			}
-		},
-		"carlao":{
-			"dialogues":{
-				"text":[
-					"ghdsfarewrstgfdsrewrsg"
-				]
-			}
+	"mao":{
+		"dialogues":{
+			"text":[
+				" aaaaaaaaa"
+			]
+		}
+	},
+	"carlao":{
+		"dialogues":{
+			"text":[
+				"ghdsfarewrstgfdsrewrsg"
+			]
+		}
+	},
+	"osmar":{
+		"dialogues":{
+			"text":[
+				"abcdefg"
+			]
+		}
+	},
+	"thiago":{
+		"dialogues":{
+			"text":[
+				"gdfde"
+			]
+		}
+	},
+	"guarda":{
+		"dialogues":{
+			"text":[
+				"Finalmente você chegou, precisa parar de se atrasar desse jeito",
+				"já é quase hora de fechar, e quase toda a equipe ja foi embora",
+				"O lugar está uma bagunça, então precisamos que faça seu trabalho",
+				"Preciso que você recolha os lixos que os bêbabos deixaram",
+				"Depois limpe os banheiros e o armazêm",
+				"Por fim, expulse quem sobrou e tranque as portas",
+				"entendeu?"
+				
+			]
 		}
 	}
+}
