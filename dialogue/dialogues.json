@@ -1,10 +1,14 @@
 {
-	"default": {
-		"random": [
+	"random": { 
+		"text": [
 			"Salve fio",
 			"Tranquilo!",
-			"Pipoquinha com manteiga hmmm"
+			"Pipoquinha com manteiga hmmm",
+			"Eu amo essa música",
+			"Derrubaram algo quente em mim",
+			"Que horas acaba seu turno? gatinho"
 		],
+		
 		"dialogues": {
 			"text": [
 				"Na moral tomara que funcione isso aqui",
@@ -15,5 +19,19 @@
 				"Não": "TODO"
 			}
 		}
+	},
+		"mao":{
+			"dialogues":{
+				"text":[
+					" aaaaaaaaa"
+				]
+			}
+		},
+		"carlao":{
+			"dialogues":{
+				"text":[
+					"ghdsfarewrstgfdsrewrsg"
+				]
+			}
+		}
 	}
-}
