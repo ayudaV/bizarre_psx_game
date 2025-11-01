@@ -18,7 +18,6 @@ const SENSIBILITY = 0.003
 
 @onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
 @onready var stamina_bar_r: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_r
-
 @onready var quest_handler: QuestHandler = $camera_pivot/HUD/quests
 
 var holdable_objects = {}
@@ -73,6 +72,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera_pivot.rotate_y(-event.relative.x * SENSIBILITY)
 		camera.rotate_x(-event.relative.y * SENSIBILITY)
 		camera.rotation.x = clamp(camera.rotation.x, MIN_CAMX, MAX_CAMX)
+	
+	if (event.is_action_pressed("pass_dialog")):
+		quest_handler.progress_quest()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
