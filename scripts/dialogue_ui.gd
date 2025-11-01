@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:	
 	if panel.visible && Input.is_action_just_pressed("pass_dialog"):
-		if dialog_progress >= dialog_limit: pass_dialog()
+		if dialog_progress >= dialog_limit: pass_dialogue()
 		else: dialog_progress = dialog_limit
 	
 	if dialog_progress >= dialog_limit:
@@ -31,14 +31,14 @@ func _process(delta: float) -> void:
 		dialog_progress = clamp(dialog_progress, 0, dialog_limit)
 		dialog_label.text = dialog_text[page].substr(0, round(dialog_progress)) 
 
-func add_dialog(name : String, dialog : Array, options : Array) -> void:
+func add_dialogue(name : String, dialog : Array, options : Array) -> void:
 	Global.pause = true
 	dialog_text += dialog
 	speaker_name.text = name
 	dialog_limit = dialog_text[page].length()
 	panel.visible = true
 
-func pass_dialog():
+func pass_dialogue():
 	page += 1
 	dialog_progress = 0
 	

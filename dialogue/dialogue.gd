@@ -1,4 +1,4 @@
-class_name Dialog extends Resource
+class_name Dialogue extends Resource
 
 @export var dialogs := {}
 
