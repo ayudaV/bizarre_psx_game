@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbal7dy0fqtxa"]
+[gd_scene load_steps=18 format=3 uid="uid://bbal7dy0fqtxa"]
 
 [ext_resource type="Script" uid="uid://btgs5uclw83oq" path="res://scripts/player.gd" id="1_xf4s3"]
 [ext_resource type="Shader" uid="uid://ddvibi2f7hyv8" path="res://shader/psx_camera_shader.gdshader" id="2_32gk2"]
@@ -48,6 +48,10 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 2
 shadow_color = Color(0.117647, 0.117647, 0.117647, 0.243137)
 shadow_offset = Vector2(-1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vq5b"]
+font = ExtResource("7_i8sra")
+font_size = 24
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_xf4s3")
@@ -113,8 +117,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 25.0
-offset_bottom = 25.0
+offset_top = 63.0
+offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -155,6 +159,21 @@ label_settings = SubResource("LabelSettings_jll0e")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="camera_pivot/HUD/interact_text/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Limpando"
+label_settings = SubResource("LabelSettings_4vq5b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SweepBar" type="ProgressBar" parent="camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+show_percentage = false
 
 [node name="quests" type="Control" parent="camera_pivot/HUD"]
 modulate = Color(1, 1, 1, 0)

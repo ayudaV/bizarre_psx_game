@@ -19,6 +19,8 @@ const SENSIBILITY = 0.003
 @onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
 @onready var stamina_bar_r: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_r
 @onready var quest_handler: QuestHandler = $camera_pivot/HUD/quests
+@onready var sweep_bar: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer/SweepBar
+@onready var sweep_box: VBoxContainer = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer
 
 var holdable_objects = {}
 var holding_obj_parent: Node3D
@@ -31,6 +33,11 @@ const MAX_CAMX = deg_to_rad(60)
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
 var bob_time = 0.0
+
+var sweep_progres := 0.0:
+	set(value):
+		sweep_progres = value
+		sweep_bar.value = value
 
 var looking_obj
 var can_hold: bool:
@@ -140,6 +147,11 @@ func _physics_process(delta: float) -> void:
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	var curr_looking_obj = raycast.get_collider()
+	while(curr_looking_obj != null && curr_looking_obj.get("can_interact") != null && curr_looking_obj.get("can_interact") == false):
+		raycast.add_exception(curr_looking_obj)
+		raycast.force_raycast_update()
+		curr_looking_obj = raycast.get_collider()
+	raycast.clear_exceptions()
 
 	if curr_looking_obj != looking_obj:
 		if is_instance_valid(looking_obj) && looking_obj.has_signal("unfocused"):
@@ -184,6 +196,8 @@ func hold_obj(object_name: String, obj_node: Node3D = null) -> void:
 			holding_obj_parent = obj_node.get_parent_node_3d()
 			obj_node.reparent(pickup_point)
 			holding_obj = obj_node
+			holding_obj.rotation = Vector3(0, 0, 0)
+			holding_obj.emit_signal("unfocused")
 
 func drop_obj():
 	pass
