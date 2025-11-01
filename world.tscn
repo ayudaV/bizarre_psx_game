@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=11 format=3 uid="uid://cpdwlpungncrj"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
 [ext_resource type="PackedScene" uid="uid://ciqvttckdjvqq" path="res://objects/game_controller.tscn" id="1_yf481"]
-[ext_resource type="PackedScene" uid="uid://c0atrutvpyy4n" path="res://objects/flashlight.tscn" id="2_xsgnu"]
 [ext_resource type="PackedScene" uid="uid://b5ok4uv7svrlx" path="res://objects/npc.tscn" id="3_nd55t"]
 [ext_resource type="PackedScene" uid="uid://brx3au423cy5e" path="res://objects/trash.tscn" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://ben7md06nc8go" path="res://objects/trash_can.tscn" id="6_dwbse"]
@@ -56,9 +55,6 @@ light_energy = 0.471
 light_volumetric_fog_energy = 4.702
 light_angular_distance = 5.21
 
-[node name="flashlight" parent="." instance=ExtResource("2_xsgnu")]
-transform = Transform3D(-0.907704, -0.418014, 0.0365715, 0, -0.0871558, -0.996195, 0.41961, -0.90425, 0.0791117, -0.97927, 1.04594, -2.9964)
-
 [node name="npc" parent="." instance=ExtResource("3_nd55t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11584, 2.78828)
 
@@ -72,4 +68,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.646965, 0.49499, -3.4344826
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5996566, -2.9861622, -6.2090635)
 
 [node name="Broom" parent="." instance=ExtResource("8_gbfbk")]
-transform = Transform3D(1, 0, 0, 0, 0.9845032, 0.17536671, 0, -0.17536671, 0.9845032, 3.3777928, 0.41910338, -2.7759504)
+transform = Transform3D(1, 0, 0, 0, 0.9845032, 0.17536671, 0, -0.17536671, 0.9845032, 3.3777928, 1.0069427, -2.3125112)

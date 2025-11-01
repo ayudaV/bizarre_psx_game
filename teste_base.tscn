@@ -11,6 +11,8 @@ data = PackedVector3Array(10.0532, 2.0728, -11.3881, 7.6727, 5.401, -11.368, 7.6
 [node name="teste_base" instance=ExtResource("1_xk7ej")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+collision_layer = 2
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.081077, 4.0388002, -4.1347876)

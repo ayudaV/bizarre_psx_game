@@ -1,10 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbal7dy0fqtxa"]
+[gd_scene load_steps=17 format=3 uid="uid://bbal7dy0fqtxa"]
 
 [ext_resource type="Script" uid="uid://btgs5uclw83oq" path="res://scripts/player.gd" id="1_xf4s3"]
 [ext_resource type="Shader" uid="uid://ddvibi2f7hyv8" path="res://shader/psx_camera_shader.gdshader" id="2_32gk2"]
 [ext_resource type="Texture2D" uid="uid://bbtf74jipq8sf" path="res://icons/crosshairs_tilesheet_white@2.png" id="2_56o22"]
 [ext_resource type="Script" uid="uid://bysdu6y8y8f24" path="res://scripts/context_component.gd" id="3_btdrp"]
-[ext_resource type="PackedScene" uid="uid://c0atrutvpyy4n" path="res://objects/flashlight.tscn" id="3_y33cf"]
 [ext_resource type="Texture2D" uid="uid://dpxl6gl3ic0l1" path="res://icons/Keyboard & Mouse/Default/keyboard_e.png" id="4_n1vfi"]
 [ext_resource type="FontFile" uid="uid://dpgyfwitoblt7" path="res://fonts/XTypewriter-Regular.ttf" id="4_rbcv6"]
 [ext_resource type="Script" uid="uid://xmtvdn88fxpc" path="res://objects/scripts/quest_handler.gd" id="6_3rfka"]
@@ -54,6 +53,7 @@ font = ExtResource("7_i8sra")
 font_size = 24
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
+collision_mask = 3
 script = ExtResource("1_xf4s3")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
@@ -70,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3355968)
 
 [node name="raycast" type="RayCast3D" parent="camera_pivot/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0555006, 0.0216231, 0.205075)
-target_position = Vector3(0, 0, -3)
+target_position = Vector3(0, 0, -2)
 collide_with_areas = true
 debug_shape_thickness = 5
 
@@ -83,10 +83,6 @@ mesh = SubResource("QuadMesh_bldmp")
 
 [node name="pickup_point" type="Node3D" parent="camera_pivot/camera/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329, -0.211, -0.422)
-
-[node name="flashlight" parent="camera_pivot/camera/Node3D" instance=ExtResource("3_y33cf")]
-transform = Transform3D(1, 0, 0, 0, -0.246119, -0.969239, 0, 0.969239, -0.246119, 0.329165, -0.211009, -0.422173)
-metadata/_edit_lock_ = true
 
 [node name="HUD" type="Control" parent="camera_pivot"]
 layout_mode = 3

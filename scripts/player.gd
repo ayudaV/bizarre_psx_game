@@ -13,7 +13,6 @@ const SENSIBILITY = 0.003
 @onready var raycast: RayCast3D = $camera_pivot/camera/raycast
 
 @onready var holdable_parent: Node3D = $camera_pivot/camera/Node3D
-@onready var flashlight: Area3D = $camera_pivot/camera/Node3D/flashlight
 @onready var pickup_point: Node3D = $camera_pivot/camera/Node3D/pickup_point
 
 @onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
@@ -70,7 +69,6 @@ func _ready() -> void:
 	
 	holding_obj = null
 	init_obj_pos = Vector3.ZERO
-	flashlight.visible = false
 	
 	stamina_bar_l.max_value = max_stamina
 	stamina_bar_l.value = stamina
@@ -84,8 +82,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotate_x(-event.relative.y * SENSIBILITY)
 		camera.rotation.x = clamp(camera.rotation.x, MIN_CAMX, MAX_CAMX)
 	
-	if (event.is_action_pressed("pass_dialog")):
-		quest_handler.progress_quest()
+	if (event.is_action_pressed("drop")):
+		drop_obj()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -179,17 +177,11 @@ func _head_bob(time: float) -> Vector3:
 	
 	return pos
 
-func hold_obj(object_name: String, obj_node: Node3D = null) -> void:
+func hold_obj(_object_name: String, obj_node: Node3D = null) -> void:
 	if (holding_obj != null):
 		return
 	
-	if holdable_objects.has(object_name.to_lower()):
-		var obj = holdable_objects[object_name]
-		if (obj != null):
-			obj.visible = true
-			init_obj_pos = obj.transform.origin
-			holding_obj = obj
-	elif (obj_node != null):
+	if (obj_node != null):
 		if (obj_node.get("can_interact")):
 			obj_node.follow = pickup_point
 			obj_node.can_interact = false
@@ -197,10 +189,26 @@ func hold_obj(object_name: String, obj_node: Node3D = null) -> void:
 			obj_node.reparent(pickup_point)
 			holding_obj = obj_node
 			holding_obj.rotation = Vector3(0, 0, 0)
+			holding_obj.freeze = true
+			holding_obj.is_held = true
 			holding_obj.emit_signal("unfocused")
 
 func drop_obj():
-	pass
+	if (holding_obj == null):
+		return
+	
+	if (holding_obj.get("can_interact") != null):
+		holding_obj.follow = null
+		holding_obj.can_interact = true
+		holding_obj.rotation = Vector3(0, 0, 0)
+		holding_obj.freeze = false
+	
+	holding_obj.reparent(get_tree().root.get_node("World"))
+	var direction = -camera.global_transform.basis.z.normalized()
+	holding_obj.apply_central_impulse(direction * 4)
+	holding_obj.is_held = false
+	holding_obj = null
+	holding_obj_parent = null
 
 func delete_obj():
 	holding_obj.queue_free()

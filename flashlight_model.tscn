@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgyapmy0pi5v3"]
+
+[ext_resource type="PackedScene" uid="uid://drsmiusak0bud" path="res://models/assets/Flashlight01/Flashlight01.glb" id="1_1e2yy"]
+
+[node name="Flashlight01" instance=ExtResource("1_1e2yy")]
