@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ew7egx46djq4" path="res://objects/broom.tscn" id="8_gbfbk"]
 [ext_resource type="Script" uid="uid://7fsango0bi0s" path="res://enemy_scene_controller.gd" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://34jnt07u13hh" path="res://objects/enemy.tscn" id="11_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://vcaxvh4lrrga" path="res://objects/wallet.tscn" id="9_wse8f"]
 
 [sub_resource type="Animation" id="Animation_gbfbk"]
 resource_name = "start"
@@ -145,6 +146,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0856743, -2.264427, 22.941
 [node name="TrashCan" parent="interactables" instance=ExtResource("6_dwbse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.070517, -2.1630337, 21.635715)
 
+[node name="Wallet" parent="interactables" instance=ExtResource("9_wse8f")]
+
 [node name="npcs" type="Node3D" parent="."]
 
 [node name="tutorial_npc" parent="npcs" instance=ExtResource("3_nd55t")]
@@ -160,6 +163,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3783245, 0.86926126, 7.0530
 npc_id = "npc1"
 npc_name = "Calvin"
 quest = 2
+
+[node name="npc??" parent="npcs" instance=ExtResource("3_nd55t")]
+npc_id = "default"
+quest = 0
+can_interact = true
+item_name = ""
+item_dialogue_id = ""
 
 [node name="motorcycle_sound" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52030516, -1.6971968, 22.557419)

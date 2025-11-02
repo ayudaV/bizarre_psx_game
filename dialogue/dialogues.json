@@ -94,5 +94,24 @@
 				["Você", "Pra ganhar mal demais pra quantidade de maluco que tem que aturar"]
 			]
 		}
+	},
+	
+	"npc_04": {
+		"dialogues": {
+			"text": [
+				["Homem Assustado", "Meu Deus, eu vi.."],
+				["Você", "Preciso que saia da boate."],
+				["Homem Assustado", "Eu gostaria, mas não consigo cara"],
+				["Homem Assustado", "Eu preciso da minha carteira pra chegar em casa, sem ela eu tô fodido"],
+				["Você", "E o que aconteceu com ela?"],
+				["Homem Assustado", "Eu derrubei no banheiro.."],
+				["Homem Assustado", "Quando eu fui mijar, eu senti uma coisa muito ruim, como se alguma coisa fosse acontecer"],
+				["Homem Assustado", "Não faço ideia do que foi, mas tô morrendo de medo de ir lá pegar"],
+				["Homem Assustado", "Eu não quero te atrapalhar cara, mas preciso da minha carteira e não consigo voltar lá"],
+				["Homem Assustado", "É só pegar ela pra mim que eu vazo na hora, por favor"],
+				["", "Esse dia fica cada vez mais ridículo. Eu deveria cobrar um adicional qualquer dia desses"],
+				["Você", "Tudo bem. Eu pego ela pra você, só vai embora depois, ok?"],
+			]
+		}
 	}
 }

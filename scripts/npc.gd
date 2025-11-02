@@ -10,12 +10,21 @@ extends CharacterBody3D
 @export var dialogue_ui : DialogueUI
 @export var can_interact: bool = true
 
+@export_category("Item")
+@export var item_name: String
+@export var item_dialogue_id: String
+
 @onready var head: CollisionShape3D = $head
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 var current_on_target_reached = null
 var SPEED = 6.0
-var focused: bool
+var focused: bool:
+	set(value):
+		$coll_outline.visible = value
+		focused = value
+
+signal item_received()
 
 func _ready() -> void:
 	dialogue_resource.load_from_json("res://dialogue/dialogues.json")
@@ -39,6 +48,7 @@ func interact():
 	if npc_dialogues.is_empty(): return
 	
 	Global.player.focus = head
+		
 	
 	if (Global.current_quest != quest):
 		var t = npc_dialogues.get("ramdom", [])
@@ -48,7 +58,11 @@ func interact():
 			}
 			dialogue_ui.add_dialogue(d)
 	else:
-		dialogue_ui.add_dialogue(npc_dialogues["dialogues"])
+		if (Global.player.holding_obj.item_name == item_name):
+			dialogue_ui.add_dialogue(dialogue_resource[item_dialogue_id]["dialogues"])
+			item_received.emit()
+		else: 
+			dialogue_ui.add_dialogue(npc_dialogues["dialogues"])
 	
 func go_to(target_location, _on_target_reached):
 	if Global.pause:

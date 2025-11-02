@@ -1,14 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5ok4uv7svrlx"]
+[gd_scene load_steps=13 format=3 uid="uid://b5ok4uv7svrlx"]
 
 [ext_resource type="Script" uid="uid://3coot3o48nc1" path="res://scripts/npc.gd" id="1_0dpvs"]
 [ext_resource type="Script" uid="uid://dn2eaprkg88q4" path="res://scripts/interaction_component.gd" id="2_3kdkt"]
 [ext_resource type="Script" uid="uid://ck0h457cqth6y" path="res://dialogue/dialogue.gd" id="2_y626a"]
+[ext_resource type="Shader" uid="uid://bxccjnpqwf386" path="res://shader/outline.gdshader" id="3_1xqyt"]
 [ext_resource type="Texture2D" uid="uid://dpxl6gl3ic0l1" path="res://icons/Keyboard & Mouse/Default/keyboard_e.png" id="3_dknca"]
 [ext_resource type="PackedScene" uid="uid://dm2uidna0mp50" path="res://dialogue/dialogue_ui.tscn" id="5_07jg7"]
 
 [sub_resource type="Resource" id="Resource_u3smf"]
 script = ExtResource("2_y626a")
 metadata/_custom_type_script = "uid://ck0h457cqth6y"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5xkw"]
+render_priority = 0
+shader = ExtResource("3_1xqyt")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 5.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6reps"]
+material = SubResource("ShaderMaterial_x5xkw")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xxuml"]
 
@@ -23,9 +33,19 @@ radius = 0.189786
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_0dpvs")
+npc_id = null
 npc_name = "Carlão"
+quest = null
 dialogue_resource = SubResource("Resource_u3smf")
 dialogue_ui = NodePath("DialogueUI")
+can_interact = null
+item_name = null
+item_dialogue_id = null
+
+[node name="coll_outline" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_6reps")
+skeleton = NodePath("../coll")
 
 [node name="coll" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_xxuml")

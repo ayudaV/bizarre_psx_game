@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs2paomklog5m"]
+[gd_scene load_steps=10 format=3 uid="uid://bs2paomklog5m"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_wen4y"]
 [ext_resource type="PackedScene" uid="uid://b5ok4uv7svrlx" path="res://objects/npc.tscn" id="2_w8un3"]
+[ext_resource type="PackedScene" uid="uid://vcaxvh4lrrga" path="res://objects/wallet.tscn" id="3_0d6la"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w8un3"]
 
@@ -46,9 +47,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49785233, 0.98335195, -0.6
 
 [node name="npc" parent="." instance=ExtResource("2_w8un3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3783245, 1, -0.3074832)
-npc_id = "npc1"
-npc_name = "Calvin"
-quest = 2
+npc_id = "npc4"
+npc_name = "???"
+quest = 3
+can_interact = true
+item_name = "wallet"
+item_dialogue_id = "wallet"
 
 [node name="ExitPos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.043883, 0, -7.4048653)
+
+[node name="wallet" parent="." instance=ExtResource("3_0d6la")]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://vcaxvh4lrrga"]
+
+[ext_resource type="Script" uid="uid://bb1mq54eeuiqa" path="res://objects/scripts/pickable.gd" id="1_ffwir"]
+[ext_resource type="Script" uid="uid://dkqtm2fj42qhv" path="res://objects/scripts/broom_area.gd" id="2_usa13"]
+[ext_resource type="Script" uid="uid://dn2eaprkg88q4" path="res://scripts/interaction_component.gd" id="3_rryx5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fhaj6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_crli5"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6pgj"]
+size = Vector3(2.2747803, 2.4076538, 2.223755)
+
+[node name="Wallet" type="RigidBody3D"]
+script = ExtResource("1_ffwir")
+metadata/_custom_type_script = "uid://bb1mq54eeuiqa"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fhaj6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_crli5")
+
+[node name="PickableArea" type="Area3D" parent="."]
+script = ExtResource("2_usa13")
+metadata/_custom_type_script = "uid://dkqtm2fj42qhv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10333252, -0.31332397, -0.13165283)
+shape = SubResource("BoxShape3D_r6pgj")
+
+[node name="InteractionComponent" type="Node" parent="PickableArea"]
+script = ExtResource("3_rryx5")
+content = "Pickup"
+metadata/_custom_type_script = "uid://dn2eaprkg88q4"

@@ -25,7 +25,7 @@ const SENSIBILITY = 0.003
 
 var holdable_objects = {}
 var holding_obj_parent: Node3D
-var holding_obj: Node3D
+var holding_obj: Pickable
 var init_obj_pos := Vector3()
 
 const MIN_CAMX = deg_to_rad(-60)
@@ -192,6 +192,8 @@ func hold_obj(_object_name: String, obj_node: Node3D = null) -> void:
 			holding_obj.rotation = Vector3(0, 0, 0)
 			holding_obj.freeze = true
 			holding_obj.is_held = true
+			
+			holding_obj.picked.emit()
 			holding_obj.emit_signal("unfocused")
 
 func drop_obj():

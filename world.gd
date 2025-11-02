@@ -10,6 +10,10 @@ func _ready() -> void:
 	Transition.color_rect.modulate.a = 1.0
 	player.quest_handler.quest_completed.connect(advance_quests)
 	cutscene_handler.play("start")
+	
+	$interactables/Wallet.picked.connect(func():
+		$"npcs/npc??".queue_free()
+		)
 
 func handle_quests():
 	match Global.current_quest:
