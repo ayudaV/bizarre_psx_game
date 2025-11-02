@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
-var SPEED = 3
+var SPEED = 4
 
 func _physics_process(delta: float) -> void:
 	if Global.pause:
