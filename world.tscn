@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=24 format=3 uid="uid://cpdwlpungncrj"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
 [ext_resource type="Script" uid="uid://bgfqe788rpbmc" path="res://world.gd" id="1_gbfbk"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://7fsango0bi0s" path="res://enemy_scene_controller.gd" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://cfj68vtjpc83x" path="res://objects/enemy.tscn" id="11_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://hdfw08kkoyun" path="res://models/map/placa luminosa.glb" id="13_2o6r5"]
+[ext_resource type="AudioStream" uid="uid://de5mpuv0oq5i0" path="res://sounds/musica_balada.mp3" id="14_2u3nc"]
 [ext_resource type="PackedScene" uid="uid://wywiruyt506p" path="res://objects/porta.tscn" id="14_70uel"]
 
 [sub_resource type="Animation" id="Animation_gbfbk"]
@@ -239,7 +240,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022216797, 0.7811279, -0.06
 shape = SubResource("BoxShape3D_k3n1d")
 
 [node name="placa luminosa" parent="." instance=ExtResource("13_2o6r5")]
-transform = Transform3D(2.221105, 0, 0, 0, 2.221105, 0, 0, 0, 1, 6.9923463, 1.2809225, -10.208717)
+transform = Transform3D(2.221105, 0, 0, 0, 2.221105, 0, 0, 0, 1, 9.083, 5.0401664, -10.425743)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 2
@@ -259,20 +260,22 @@ shape = SubResource("BoxShape3D_2u3nc")
 
 [connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]
 [node name="Porta Armazém" parent="." instance=ExtResource("14_70uel")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -16.354036, 1.1700052, 1.2390449)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -14.263382, 4.9292493, 1.0220191)
 
 [node name="Porta Boate" parent="." instance=ExtResource("14_70uel")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.634073, 1.1735011, -0.69660974)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.543419, 4.932745, -0.9136355)
 
 [node name="Porta Banheiro 1" parent="." instance=ExtResource("14_70uel")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.128881, 1.1821172, -7.3654003)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.038227, 4.9413614, -7.582426)
 
 [node name="Porta Banheiro 2" parent="." instance=ExtResource("14_70uel")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.816575, 1.1647942, -7.415002)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.725922, 4.924038, -7.6320276)
 
 [node name="Porta" parent="." instance=ExtResource("14_70uel")]
-transform = Transform3D(-3.0379415e-08, 0, -0.695, 0, 0.695, 0, 0.695, 0, -3.0379415e-08, -12.584896, -1.3436103, 20.586212)
+transform = Transform3D(-3.0379415e-08, 0, -0.695, 0, 0.695, 0, 0.695, 0, -3.0379415e-08, -10.494242, 2.4156337, 20.369186)
 
 [node name="Porta2" parent="." instance=ExtResource("14_70uel")]
-transform = Transform3D(-3.037941e-08, 0, 0.69499993, 0, 0.69499993, 0, -0.69499993, 0, -3.037941e-08, -15.423797, -1.3445168, 20.654854)
+transform = Transform3D(-3.037941e-08, 0, 0.69499993, 0, 0.69499993, 0, -0.69499993, 0, -3.037941e-08, -13.333143, 2.4147272, 20.437828)
 open_direction = -1
+
+[connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]

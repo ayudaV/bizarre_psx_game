@@ -65,6 +65,8 @@ func end_tutorial_dialogue():
 		Global.player.quest_handler.add_quest("Jogue o lixo fora", 5)
 		Global.current_quest = Global.quests.TRASH
 		await get_tree().create_timer(0.7).timeout
+		$DJ.play()
+		$DJ2.play()
 		Transition.fade_out(2.3, func(): 
 			Global.pause = false
 			)
