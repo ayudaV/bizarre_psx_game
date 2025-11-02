@@ -1,5 +1,7 @@
 extends Node
 
+signal Jumpscare
+
 @onready var player: Player = $"../player"
 @onready var enemy: CharacterBody3D = $Enemy
 @onready var initial_enemy_position: Node3D = $InitialEnemyPosition
@@ -15,6 +17,9 @@ var should_start_count_down = false
 
 var knock_count = 0
 
+func _ready() -> void:
+	Jumpscare.connect(_on_jumpscared_triggered)
+	
 func begin():
 	enemy.visible = true
 	knocking.stream = KNOCKING
@@ -52,3 +57,6 @@ func _process(delta: float) -> void:
 
 	if is_chasing:
 		get_tree().call_group("enemy", "update_target_location", player.global_position)
+
+func _on_jumpscared_triggered():
+	get_tree().change_scene_to_file("res://scenes/Jumpscare.tscn")
