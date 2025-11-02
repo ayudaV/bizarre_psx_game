@@ -12,6 +12,7 @@ material = SubResource("StandardMaterial3D_882u1")
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_882u1")
 
 [node name="Mesh" type="MeshInstance3D" parent="." groups=["enemy"]]

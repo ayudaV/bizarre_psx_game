@@ -3,6 +3,7 @@ extends Node3D
 @onready var cutscene_handler: AnimationPlayer = $CutsceneHandler
 @onready var player: Player = $player
 @onready var npc_dest: Node3D = $npc_dest
+@onready var enemy_scene_controller: Node = $EnemySceneController
 
 func _ready() -> void:
 	Global.pause = true
@@ -55,4 +56,5 @@ func end_tutorial_dialogue():
 func _physics_process(_delta: float) -> void:
 	handle_quests()
 	#get_tree().call_group("enemy", "update_target_location", player.global_position)
-	pass
+	if Input.is_action_just_pressed("drop"):
+		enemy_scene_controller.begin()
