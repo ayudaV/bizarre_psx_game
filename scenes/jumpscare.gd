@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 	waiting_time -= delta
 	
 	if waiting_time <= 7:
-		jumpscare.modulate.v -= 0.02
+		jumpscare.modulate.v -= 0.01
 	
 	if waiting_time <= 0:
 		pass
