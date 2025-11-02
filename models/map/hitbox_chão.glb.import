@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cbk3mcdbccy3u"
-path="res://.godot/imported/teste_base.glb-83d8e6059b781f59765e3cde1ceb8514.scn"
+uid="uid://dkmym6l5h71bh"
+path="res://.godot/imported/hitbox_chão.glb-4d0fcd2c3a4102fb2342410a204d1e51.scn"
 
 [deps]
 
-source_file="res://models/teste_base.glb"
-dest_files=["res://.godot/imported/teste_base.glb-83d8e6059b781f59765e3cde1ceb8514.scn"]
+source_file="res://models/map/hitbox_chão.glb"
+dest_files=["res://.godot/imported/hitbox_chão.glb-4d0fcd2c3a4102fb2342410a204d1e51.scn"]
 
 [params]
 

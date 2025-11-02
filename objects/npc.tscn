@@ -21,9 +21,11 @@ radius = 0.189786
 
 [node name="npc" type="CharacterBody3D" node_paths=PackedStringArray("dialogue_ui") groups=["NPC"]]
 script = ExtResource("1_0dpvs")
+npc_id = null
 npc_name = "Carlão"
 dialogue_resource = SubResource("Resource_u3smf")
 dialogue_ui = NodePath("DialogueUI")
+can_interact = null
 
 [node name="coll" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_xxuml")

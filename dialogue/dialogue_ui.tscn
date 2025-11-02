@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm2uidna0mp50"]
+[gd_scene load_steps=8 format=3 uid="uid://dm2uidna0mp50"]
 
 [ext_resource type="Script" uid="uid://v1qthjlafaci" path="res://scripts/dialogue_ui.gd" id="1_rrwho"]
 [ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="2_01132"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="3_brsfq"]
 [ext_resource type="Texture2D" uid="uid://cjpif16332w3f" path="res://icons/Keyboard & Mouse/Default/keyboard_space_icon_outline.png" id="4_ct5x0"]
+[ext_resource type="AudioStream" uid="uid://nu4g0l6vsfn8" path="res://sounds/dialogue.wav" id="5_rrwho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6usr"]
 bg_color = Color(0, 0, 0, 0.5647059)
@@ -96,3 +97,6 @@ grow_vertical = 0
 texture = ExtResource("4_ct5x0")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rrwho")

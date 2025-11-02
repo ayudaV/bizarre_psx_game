@@ -14,13 +14,14 @@ const SENSIBILITY = 0.003
 
 @onready var holdable_parent: Node3D = $camera_pivot/camera/Node3D
 @onready var pickup_point: Node3D = $camera_pivot/camera/Node3D/pickup_point
+@onready var reticle: TextureRect = $camera_pivot/HUD/reticle/TextureRect
 
 @onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
 @onready var stamina_bar_r: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_r
 @onready var quest_handler: QuestHandler = $camera_pivot/HUD/quests
 @onready var sweep_bar: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer/SweepBar
 @onready var sweep_box: VBoxContainer = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer
-@onready var dialogue_ui: Control = $camera_pivot/HUD/DialogueUI
+@onready var dialogue_ui: DialogueUI = $camera_pivot/HUD/DialogueUI
 
 var holdable_objects = {}
 var holding_obj_parent: Node3D
@@ -87,6 +88,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		drop_obj()
 
 func _physics_process(delta: float) -> void:
+	reticle.visible = !Global.pause
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
@@ -103,9 +106,6 @@ func _physics_process(delta: float) -> void:
 	
 	bob_time += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _head_bob(bob_time)
-	
-	if Input.is_action_just_pressed("pause"):
-		Global.pause = !Global.pause
 
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (camera_pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

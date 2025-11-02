@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhvdwrm8wrxtg"
-path="res://.godot/imported/Teste_de_forma.glb-22268bd2d84d52c05121381e392a6cd0.scn"
+uid="uid://bc8sd46k8om87"
+path="res://.godot/imported/alfa_cenario.glb-2bbb5123b7e49c15af6e16fb3d2a9451.scn"
 
 [deps]
 
-source_file="res://models/assets/Teste_de_forma.glb"
-dest_files=["res://.godot/imported/Teste_de_forma.glb-22268bd2d84d52c05121381e392a6cd0.scn"]
+source_file="res://models/map/alfa_cenario.glb"
+dest_files=["res://.godot/imported/alfa_cenario.glb-2bbb5123b7e49c15af6e16fb3d2a9451.scn"]
 
 [params]
 

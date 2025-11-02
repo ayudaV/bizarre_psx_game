@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn4d32i3cw2bl"]
+
+[ext_resource type="PackedScene" uid="uid://bc8sd46k8om87" path="res://models/map/alfa_cenario.glb" id="1_tc4fv"]
+[ext_resource type="PackedScene" uid="uid://ddecw6t2nihol" path="res://models/map/map_hitbox.tscn" id="2_vvt7a"]
+
+[node name="Map" type="Node3D"]
+
+[node name="alfa_cenario" parent="." instance=ExtResource("1_tc4fv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7, 0)
+
+[node name="hitbox_chão2" parent="." instance=ExtResource("2_vvt7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7, 0)
+visible = false

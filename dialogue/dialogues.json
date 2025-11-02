@@ -22,5 +22,35 @@
 				"Deu certo ent"
 			]
 		}
+	},
+	
+	"tutorial": {
+		"dialogues": {
+			"text": [
+				["Caio", "Até que enfim você chegou."],
+				["Caio", "Essa é a última vez que eu te cubro, hoje o dia foi insuportável"],
+				["Você","Foi mal cara. Eu fiquei perdido nesse escuro"],
+				["Caio", "É... A cidade inteira ficou no escuro"],
+				["Caio", "A energia morreu aqui também mais cedo."],
+				["Você", "..."],
+				["Você", "Tenso"],
+				["Caio", "Chega de enrolar cara, tem gente dando trabalho hoje de novo"],
+				["Você", "De novo? Isso nunca acontecia, como pode ter tanta gente folgada vindo aqui agora?"],
+				["Caio", "Eu sei lá cara, só faz o favor de tirar essa gente daqui antes de fechar."]
+			],
+			"options": {
+				"Tanto faz": "tutorial_2",
+				"Deixa comigo": "tutorial_2"
+			}
+		}
+	},
+	"tutorial_2": {
+		"dialogues": {
+			"text": [
+				["Caio", "E mais uma coisa."],
+				["Caio", "Não esquece de tirar o lixo e limpar a pista"],
+				["Você", "... Fechou."]
+			]
+		}
 	}
 }

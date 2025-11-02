@@ -1,12 +1,67 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=15 format=3 uid="uid://cpdwlpungncrj"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
-[ext_resource type="PackedScene" uid="uid://ciqvttckdjvqq" path="res://objects/game_controller.tscn" id="1_yf481"]
+[ext_resource type="Script" uid="uid://bgfqe788rpbmc" path="res://world.gd" id="1_gbfbk"]
+[ext_resource type="AudioStream" uid="uid://ddaagl0v2elef" path="res://sounds/motorcycle.wav" id="2_ioo17"]
+[ext_resource type="AudioStream" uid="uid://bh88qlso7ydh2" path="res://sounds/car-break.mp3" id="3_ioo17"]
 [ext_resource type="PackedScene" uid="uid://b5ok4uv7svrlx" path="res://objects/npc.tscn" id="3_nd55t"]
 [ext_resource type="PackedScene" uid="uid://brx3au423cy5e" path="res://objects/trash.tscn" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://ben7md06nc8go" path="res://objects/trash_can.tscn" id="6_dwbse"]
-[ext_resource type="PackedScene" uid="uid://b6h75tr38u1yf" path="res://teste_base.tscn" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://bn4d32i3cw2bl" path="res://models/map/Map.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://ew7egx46djq4" path="res://objects/broom.tscn" id="8_gbfbk"]
+
+[sub_resource type="Animation" id="Animation_gbfbk"]
+resource_name = "start"
+length = 10.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("motorcycle_sound/motorcycle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_ioo17")
+}],
+"times": PackedFloat32Array(1)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("motorcycle_sound/AudioStreamPlayer3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_ioo17")
+}],
+"times": PackedFloat32Array(3.4666667)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ioo17"]
+_data = {
+&"start": SubResource("Animation_gbfbk")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6pp2b"]
 sky_top_color = Color(0.172833, 0.172833, 0.172833, 1)
@@ -34,20 +89,19 @@ ssao_light_affect = 0.2
 fog_enabled = true
 fog_light_energy = 0.59
 fog_sun_scatter = 0.07
-fog_density = 0.0955
+fog_density = 0.0259
 fog_aerial_perspective = 0.17
-fog_height_density = 6.5641
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_gbfbk")
 
-[node name="game_controller" parent="." instance=ExtResource("1_yf481")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.57113, 0)
+[node name="CutsceneHandler" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ioo17")
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wlcwn")
-
-[node name="player" parent="." instance=ExtResource("1_att4b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00877, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.625964, 0.779852, 0, -0.779852, 0.625964, 0, 4, 4.42572)
@@ -55,17 +109,37 @@ light_energy = 0.471
 light_volumetric_fog_energy = 4.702
 light_angular_distance = 5.21
 
-[node name="npc" parent="." instance=ExtResource("3_nd55t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11584, 2.78828)
+[node name="Map" parent="." instance=ExtResource("7_pkg7o")]
 
-[node name="Trash" parent="." instance=ExtResource("5_036b0")]
+[node name="player" parent="." instance=ExtResource("1_att4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.56832, -1.3289495, 25.080757)
+
+[node name="pickables" type="Node3D" parent="."]
+
+[node name="Broom" parent="pickables" instance=ExtResource("8_gbfbk")]
+transform = Transform3D(1, 0, 0, 0, 0.9845032, 0.17536671, 0, -0.17536671, 0.9845032, 3.3777928, 1.0069427, -2.3125112)
+
+[node name="Trash" type="Node3D" parent="pickables"]
+
+[node name="Trash" parent="pickables/Trash" instance=ExtResource("5_036b0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3962742, 0.009788739, -2.2932315)
 
-[node name="TrashCan" parent="." instance=ExtResource("6_dwbse")]
+[node name="interactables" type="Node3D" parent="."]
+
+[node name="TrashCan" parent="interactables" instance=ExtResource("6_dwbse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.646965, 0.49499, -3.4344826)
 
-[node name="teste_base" parent="." instance=ExtResource("7_pkg7o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5996566, -2.9861622, -6.2090635)
+[node name="npcs" type="Node3D" parent="."]
 
-[node name="Broom" parent="." instance=ExtResource("8_gbfbk")]
-transform = Transform3D(1, 0, 0, 0, 0.9845032, 0.17536671, 0, -0.17536671, 0.9845032, 3.3777928, 1.0069427, -2.3125112)
+[node name="tutorial_npc" parent="npcs" instance=ExtResource("3_nd55t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.58218, -1.4028245, 22.476143)
+npc_id = "tutorial"
+npc_name = "Caio"
+can_interact = false
+
+[node name="motorcycle_sound" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52030516, -1.6971968, 22.557419)
+
+[node name="motorcycle" type="AudioStreamPlayer3D" parent="motorcycle_sound"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="motorcycle_sound"]

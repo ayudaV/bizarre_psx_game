@@ -6,7 +6,8 @@ extends CharacterBody3D
 
 @export_category("Dialogue")
 @export var dialogue_resource : Dialogue
-@export var dialogue_ui : Control
+@export var dialogue_ui : DialogueUI
+@export var can_interact: bool = true
 
 @onready var head: CollisionShape3D = $head
 
@@ -22,4 +23,4 @@ func interact():
 	if npc_dialogues.is_empty(): return
 	
 	Global.player.focus = head
-	dialogue_ui.add_dialogue(npc_name, npc_dialogues["dialogues"]["text"], npc_dialogues["dialogues"].get("options", {}))
+	dialogue_ui.add_dialogue(npc_dialogues["dialogues"])

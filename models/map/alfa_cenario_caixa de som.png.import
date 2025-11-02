@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byik4k1mmeefn"
-path.s3tc="res://.godot/imported/teste_base_teste.png-e5423236d8f7b77f6f33701cbd2dc206.s3tc.ctex"
+uid="uid://celdgn4y6jsk"
+path.s3tc="res://.godot/imported/alfa_cenario_caixa de som.png-7e6a3acbc2797abc7e6af6030c9e1270.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "8b7931eb77a4e80f4f3083fe2d52181b"
+"md5": "078d2d7a8416e7daf7ed8d6c49c133cc"
 }
 
 [deps]
 
-source_file="res://models/teste_base_teste.png"
-dest_files=["res://.godot/imported/teste_base_teste.png-e5423236d8f7b77f6f33701cbd2dc206.s3tc.ctex"]
+source_file="res://models/map/alfa_cenario_caixa de som.png"
+dest_files=["res://.godot/imported/alfa_cenario_caixa de som.png-7e6a3acbc2797abc7e6af6030c9e1270.s3tc.ctex"]
 
 [params]
 
