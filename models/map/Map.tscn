@@ -1,13 +1,126 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn4d32i3cw2bl"]
+[gd_scene load_steps=11 format=3 uid="uid://bn4d32i3cw2bl"]
 
+[ext_resource type="Script" uid="uid://dpefjxsbhh4av" path="res://models/map/omni_light_3d_5.gd" id="1_o030v"]
 [ext_resource type="PackedScene" uid="uid://bc8sd46k8om87" path="res://models/map/alfa_cenario.glb" id="1_tc4fv"]
+[ext_resource type="PackedScene" uid="uid://cn3s4f2i3dh80" path="res://models/map/Estante.glb" id="2_1tyyr"]
 [ext_resource type="PackedScene" uid="uid://ddecw6t2nihol" path="res://models/map/map_hitbox.tscn" id="2_vvt7a"]
+[ext_resource type="PackedScene" uid="uid://c2u3eit2tomnv" path="res://models/map/pilha de caixas.glb" id="3_o030v"]
+[ext_resource type="PackedScene" uid="uid://0rf322542u5n" path="res://models/map/door_01_com_frame.glb" id="5_l7if7"]
+[ext_resource type="PackedScene" uid="uid://xw47a6xc7a61" path="res://models/map/grade.glb" id="6_jjn3x"]
+[ext_resource type="PackedScene" uid="uid://c13hocs6crx1l" path="res://models/map/Telhado.glb" id="7_h7wwd"]
+[ext_resource type="PackedScene" uid="uid://cxtdrf1rf241g" path="res://models/map/sofa_01.glb" id="8_ns4wx"]
+[ext_resource type="PackedScene" uid="uid://6a1kx5p1o3ip" path="res://models/map/bar.glb" id="9_8gk32"]
 
 [node name="Map" type="Node3D"]
+
+[node name="Luzes" type="Node3D" parent="."]
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.109446, 0.29833722, 20.209206)
+light_color = Color(1, 0, 0, 1)
+light_energy = 7.5
+light_indirect_energy = 1.5
+light_size = 0.479
+light_specular = 0.0
+omni_range = 7.496428
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1304502, 2.436145, 15.970444)
+light_color = Color(0, 0.6481204, 0.15991208, 1)
+light_energy = 16.0
+light_indirect_energy = 1.5
+light_size = 1.0
+light_specular = 0.0
+omni_range = 17.028154
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.634335, 1.2180725, 24.386974)
+light_color = Color(0.49657565, 0.548071, 0.5397865, 1)
+light_energy = 40.25
+light_indirect_energy = 1.5
+light_size = 0.469
+light_specular = 0.0
+omni_range = 20.237732
+script = ExtResource("1_o030v")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.149206, 1.9973764, 6.8450627)
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 1.5
+light_size = 0.479
+light_specular = 0.0
+omni_range = 12.0627
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8428617, 1.9973764, -5.6562295)
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 1.5
+light_size = 0.479
+light_specular = 0.0
+omni_range = 12.0627
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6982284, 2.0456848, -8.192599)
+light_color = Color(0.2113089, 0.56503606, 0.80428964, 1)
+light_energy = 16.0
+light_indirect_energy = 1.5
+light_size = 0.479
+light_specular = 0.0
+omni_range = 12.0627
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.34021, 2.7078967, -9.832316)
+light_color = Color(0.39607936, 0.60817623, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 1.5
+light_size = 0.479
+light_specular = 0.0
+omni_range = 12.0627
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.724472, 3.0850344, -2.7328887)
+light_color = Color(0.78604233, 0.43041137, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 1.5
+light_size = 0.479
+light_specular = 0.0
+omni_range = 12.0627
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Luzes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.594836, 2.6562684, -9.37737)
+light_color = Color(0.39607936, 0.60817623, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 1.5
+light_size = 0.479
+light_specular = 0.0
+omni_range = 12.0627
 
 [node name="alfa_cenario" parent="." instance=ExtResource("1_tc4fv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7, 0)
 
+[node name="Estante" parent="." instance=ExtResource("2_1tyyr")]
+transform = Transform3D(1.2241048, 0, 0, 0, 1.3955165, 0, 0, 0, 1.2908103, -19.987427, -0.01599747, -6.3926506)
+
+[node name="pilha de caixas" parent="." instance=ExtResource("3_o030v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.302607, -0.0033112168, -5.332122)
+
 [node name="hitbox_chão2" parent="." instance=ExtResource("2_vvt7a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7, 0)
 visible = false
+
+[node name="door_01_com_frame" parent="." instance=ExtResource("5_l7if7")]
+transform = Transform3D(-4.371139e-08, 0, 0.8904706, 0, 0.9039506, 0, -1, 0, -3.892371e-08, 11.4574, 0.595639, -10.047064)
+
+[node name="grade" parent="." instance=ExtResource("6_jjn3x")]
+transform = Transform3D(0.96367264, 0, 0, 0, 1, 0, 0, 0, 1, -1.6015358, -2.694925, 24.202938)
+
+[node name="Telhado" parent="." instance=ExtResource("7_h7wwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030019283, -2.8092377, -0.22608662)
+
+[node name="sofa_01" parent="." instance=ExtResource("8_ns4wx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.990538, 0.016719282, -9.047857)
+
+[node name="bar2" parent="." instance=ExtResource("9_8gk32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.013496, -0.16494381, 14.596016)

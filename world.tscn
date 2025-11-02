@@ -121,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.56832, -1.3289495, 25.080
 [node name="pickables" type="Node3D" parent="."]
 
 [node name="Broom" parent="pickables" instance=ExtResource("8_gbfbk")]
-transform = Transform3D(1, 0, 0, 0, 0.9845032, 0.17536671, 0, -0.17536671, 0.9845032, 3.3777928, 1.0069427, -2.3125112)
+transform = Transform3D(1, 0, 0, 0, 0.9845032, 0.17536671, 0, -0.17536671, 0.9845032, -17.002363, 1.0069427, -2.3125112)
 
 [node name="Trash" type="Node3D" parent="pickables"]
 
@@ -170,6 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52030516, -1.6971968, 22.55
 
 [node name="npc_dest" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.973197, 0.6400074, -9.73647)
+
 [node name="EnemySceneController" type="Node" parent="."]
 script = ExtResource("10_ic0uy")
 
