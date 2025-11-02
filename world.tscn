@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=25 format=3 uid="uid://cpdwlpungncrj"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
 [ext_resource type="Script" uid="uid://bgfqe788rpbmc" path="res://world.gd" id="1_gbfbk"]
@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://ben7md06nc8go" path="res://objects/trash_can.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bn4d32i3cw2bl" path="res://models/map/Map.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://ew7egx46djq4" path="res://objects/broom.tscn" id="8_gbfbk"]
-[ext_resource type="PackedScene" path="res://objects/wallet.tscn" id="9_wse8f"]
+[ext_resource type="PackedScene" uid="uid://vcaxvh4lrrga" path="res://objects/wallet.tscn" id="9_wse8f"]
 [ext_resource type="Script" uid="uid://7fsango0bi0s" path="res://enemy_scene_controller.gd" id="10_ic0uy"]
-[ext_resource type="PackedScene" uid="uid://34jnt07u13hh" path="res://objects/enemy.tscn" id="11_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://cfj68vtjpc83x" path="res://objects/enemy.tscn" id="11_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://hdfw08kkoyun" path="res://models/map/placa luminosa.glb" id="13_2o6r5"]
 
 [sub_resource type="Animation" id="Animation_gbfbk"]
@@ -69,16 +69,18 @@ _data = {
 }
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6pp2b"]
-sky_top_color = Color(0.172833, 0.172833, 0.172833, 1)
-sky_horizon_color = Color(0.268107, 0.191103, 0.282948, 1)
+sky_top_color = Color(0.008202021, 0.008202026, 0.00820202, 1)
+sky_horizon_color = Color(0.07281961, 0.046828814, 0.01793155, 1)
+sky_energy_multiplier = 5.0
 ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.162212, 0.029023, 0.246596, 1)
-sun_angle_max = 19.51
+ground_horizon_color = Color(0.08463509, 0.009651732, 0.14046791, 1)
+ground_energy_multiplier = 0.0
 energy_multiplier = 0.5
 
 [sub_resource type="Sky" id="Sky_tam5d"]
 sky_material = SubResource("ProceduralSkyMaterial_6pp2b")
 process_mode = 1
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_wlcwn"]
 background_mode = 2
@@ -92,10 +94,12 @@ ssao_horizon = 0.51
 ssao_sharpness = 0.37
 ssao_light_affect = 0.2
 fog_enabled = true
+fog_light_color = Color(0.11318297, 0.1270827, 0.14871103, 1)
 fog_light_energy = 0.59
 fog_sun_scatter = 0.07
 fog_density = 0.0259
 fog_aerial_perspective = 0.17
+fog_sky_affect = 0.0
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ic0uy"]
 vertices = PackedVector3Array(-16.3736, 0.4182353, -0.033999443, -16.6236, 0.4182353, 0.46600056, -15.6236, 0.4182353, 0.71600056, -15.6236, 0.4182353, -0.28399944, -12.3736, 0.4182353, 0.71600056, -12.3736, 0.4182353, -0.28399944, -13.1236, 0.4182353, -6.7839994, -14.3736, 0.4182353, -6.5339994, -11.6236, 0.4182353, 0.46600056, -11.6236, 0.4182353, -0.033999443, -14.6236, 0.4182353, -11.533999, -17.8736, 0.4182353, -11.533999, -17.1236, 0.4182353, -9.283999, -15.6236, 0.4182353, -8.033999, -14.8736, -1.8317647, 19.966, -14.8736, -1.8317647, 20.716, -13.3736, -1.8317647, 20.716, -13.3736, -1.8317647, 19.966, -12.3736, 0.4182353, -8.033999, -13.1236, 0.4182353, -11.533999, -10.8736, 0.4182353, -8.283999, -10.8736, 0.4182353, -9.033999, -16.8736, 0.4182353, -8.283999, -15.6236, -1.8317647, 19.716, -12.3736, -1.8317647, 19.716, -15.6236, 0.4182353, 10.946771, -15.6236, -1.0817647, 16.792923, -15.6236, -1.8317647, 18.254463, -12.3736, -1.8317647, 18.254463, -12.3736, -1.0817647, 16.792923, -12.3736, 0.4182353, 10.946771, -17.8736, 0.4182353, -9.283999, -9.8736, 0.4182353, -9.283999, -9.8736, 0.4182353, -11.533999, -10.8736, 0.4182353, -0.28399944, -5.8736, 0.4182353, 0.96600056, -8.3736, 0.4182353, -9.533999, -8.3736, 0.4182353, -6.7839994, 11.8764, 0.9182353, -9.533999, 7.537113, 0.4182353, -9.533999, 9.340687, 0.4182353, -8.033999, -10.8736, 0.4182353, -6.5339994, -5.8736, 0.4182353, 12.216001, 11.8764, 0.4182353, 19.716, 11.8764, 0.4182353, -5.146499, -10.8736, 0.4182353, 12.466001, -10.8736, 0.4182353, 19.716, -17.1236, 0.4182353, -0.28399944, -21.8736, 0.4182353, 0.46600056, -17.1236, 0.4182353, -6.5339994, -21.8736, 0.4182353, -6.5339994, -8.6236, 0.9182353, 10.966001, -9.3736, 0.9182353, 11.466001, -6.8736, 0.9182353, 11.466001, -6.8736, 0.9182353, 1.7160006, -9.6236, 0.9182353, 1.7160006, -8.6236, 0.9182353, 2.2160006, -8.8736, 0.9182353, 9.466001, -6.8736, 0.9182353, 8.216001, -8.6236, 0.9182353, 7.9660006, -10.8736, 0.9182353, 3.9660006, -10.8736, 0.9182353, 9.216001, -9.3736, 0.9182353, 8.966001, -8.6236, 0.9182353, 5.2160006, -9.3736, 0.9182353, 4.2160006, -8.8736, 0.9182353, 3.7160006, -6.8736, 0.9182353, 4.9660006, -15.1236, -1.8317647, 21.466, -16.1236, -1.8317647, 27.716, -13.1236, -1.8317647, 21.466, 12.3764, -1.8317647, 27.716, 12.3764, -1.8317647, 21.466, -16.1236, -1.8317647, 21.466)
@@ -103,6 +107,15 @@ polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Arr
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k3n1d"]
 size = Vector3(0.70751953, 2.5622559, 1.913147)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70uel"]
+size = Vector3(29.349976, 3.0963745, 1.0610352)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hiqwa"]
+size = Vector3(1, 2.4667969, 7.007538)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2u3nc"]
+size = Vector3(1, 2.467, 7.008)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_gbfbk")
@@ -140,19 +153,19 @@ transform = Transform3D(0.98519623, 0.17143047, 0, -0.17143047, 0.98519623, 0, 0
 [node name="Trash" type="Node3D" parent="pickables"]
 
 [node name="Trash" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.460966, 1.4474952, 22.53355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.870784, 3.588231, -3.63831)
 
-[node name="Trash2" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7780967, 1.5593503, 23.368)
+[node name="Trash8" parent="pickables/Trash" instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2163255, 3.588231, -9.809893)
 
-[node name="Trash3" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.330947, 1.4632773, 24.600561)
+[node name="Trash9" parent="pickables/Trash" instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.852811, 3.588231, 8.439439)
 
-[node name="Trash4" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2318, 1.4206235, 24.33339)
+[node name="Trash6" parent="pickables/Trash" instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.012974, 3.5850844, 0.6370959)
 
-[node name="Trash5" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0856743, 1.6548367, 22.94106)
+[node name="Trash7" parent="pickables/Trash" instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.012974, 3.5850844, -5.7613945)
 
 [node name="interactables" type="Node3D" parent="."]
 
@@ -200,16 +213,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.184201, 4.5168705, -9.2504
 script = ExtResource("10_ic0uy")
 
 [node name="Enemy" parent="EnemySceneController" groups=["enemy"] instance=ExtResource("11_k3n1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.573612, 1.5246725, -10.935783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.573612, 6.747338, -9.994663)
 
 [node name="SoundPlayer" type="AudioStreamPlayer3D" parent="EnemySceneController/Enemy"]
+volume_db = -10.0
 
 [node name="InitialEnemyPosition" type="Node3D" parent="EnemySceneController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.277801, 1.5652705, -9.448406)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.574, 5.537, -11.522)
 
 [node name="Knocking" type="AudioStreamPlayer3D" parent="EnemySceneController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.826924, 2.1065857, -9.859498)
-volume_db = 10.98
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.941862, 4.9001265, -9.859498)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0861273, 3.6083934, -0.21293354)
@@ -224,6 +237,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.526, 4.522, 0.065526366)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022216797, 0.7811279, -0.06484985)
 shape = SubResource("BoxShape3D_k3n1d")
 
-[connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]
 [node name="placa luminosa" parent="." instance=ExtResource("13_2o6r5")]
 transform = Transform3D(2.221105, 0, 0, 0, 2.221105, 0, 0, 0, 1, 6.9923463, 1.2809225, -10.208717)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20843506, 3.096344, 27.76371)
+shape = SubResource("BoxShape3D_70uel")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.275723, 3.2486658, 24.035912)
+shape = SubResource("BoxShape3D_hiqwa")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.80154, 3.2486658, 24.035912)
+shape = SubResource("BoxShape3D_2u3nc")
+
+[connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]

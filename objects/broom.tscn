@@ -18,7 +18,7 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_usbxc")
 item_name = "broom"
-quest = 7
+quest = 4
 deny_text = "Não dá pra limpar o lugar com essas pessoas atrapalhando."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://34jnt07u13hh"]
+[gd_scene load_steps=5 format=3 uid="uid://cfj68vtjpc83x"]
 
 [ext_resource type="Script" uid="uid://cy78t7yxycl7h" path="res://objects/enemy.gd" id="1_882u1"]
 
@@ -11,6 +11,7 @@ material = SubResource("StandardMaterial3D_882u1")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_882u1"]
 
 [node name="Enemy" type="CharacterBody3D"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_882u1")
