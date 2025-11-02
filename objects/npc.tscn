@@ -20,6 +20,7 @@ height = 0.600914
 radius = 0.189786
 
 [node name="npc" type="CharacterBody3D" node_paths=PackedStringArray("dialogue_ui") groups=["NPC"]]
+collision_layer = 8
 script = ExtResource("1_0dpvs")
 npc_id = null
 npc_name = "Carlão"
@@ -43,3 +44,7 @@ new_icon = ExtResource("3_dknca")
 [node name="head" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134917, 0.680057, -0.0387375)
 shape = SubResource("CylinderShape3D_ud15g")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
