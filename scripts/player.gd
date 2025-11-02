@@ -13,12 +13,13 @@ const SENSIBILITY = 0.003
 @onready var raycast: RayCast3D = $camera_pivot/camera/raycast
 
 @onready var holdable_parent: Node3D = $camera_pivot/camera/Node3D
-@onready var flashlight: Area3D = $camera_pivot/camera/Node3D/flashlight
 @onready var pickup_point: Node3D = $camera_pivot/camera/Node3D/pickup_point
 
 @onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
 @onready var stamina_bar_r: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_r
 @onready var quest_handler: QuestHandler = $camera_pivot/HUD/quests
+@onready var sweep_bar: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer/SweepBar
+@onready var sweep_box: VBoxContainer = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer
 
 var holdable_objects = {}
 var holding_obj_parent: Node3D
@@ -31,6 +32,11 @@ const MAX_CAMX = deg_to_rad(60)
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
 var bob_time = 0.0
+
+var sweep_progres := 0.0:
+	set(value):
+		sweep_progres = value
+		sweep_bar.value = value
 
 var looking_obj
 var can_hold: bool:
@@ -63,7 +69,6 @@ func _ready() -> void:
 	
 	holding_obj = null
 	init_obj_pos = Vector3.ZERO
-	flashlight.visible = false
 	
 	stamina_bar_l.max_value = max_stamina
 	stamina_bar_l.value = stamina
@@ -77,8 +82,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotate_x(-event.relative.y * SENSIBILITY)
 		camera.rotation.x = clamp(camera.rotation.x, MIN_CAMX, MAX_CAMX)
 	
-	if (event.is_action_pressed("pass_dialog")):
-		quest_handler.progress_quest()
+	if (event.is_action_pressed("drop")):
+		drop_obj()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -140,6 +145,11 @@ func _physics_process(delta: float) -> void:
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	var curr_looking_obj = raycast.get_collider()
+	while(curr_looking_obj != null && curr_looking_obj.get("can_interact") != null && curr_looking_obj.get("can_interact") == false):
+		raycast.add_exception(curr_looking_obj)
+		raycast.force_raycast_update()
+		curr_looking_obj = raycast.get_collider()
+	raycast.clear_exceptions()
 
 	if curr_looking_obj != looking_obj:
 		if is_instance_valid(looking_obj) && looking_obj.has_signal("unfocused"):
@@ -167,26 +177,38 @@ func _head_bob(time: float) -> Vector3:
 	
 	return pos
 
-func hold_obj(object_name: String, obj_node: Node3D = null) -> void:
+func hold_obj(_object_name: String, obj_node: Node3D = null) -> void:
 	if (holding_obj != null):
 		return
 	
-	if holdable_objects.has(object_name.to_lower()):
-		var obj = holdable_objects[object_name]
-		if (obj != null):
-			obj.visible = true
-			init_obj_pos = obj.transform.origin
-			holding_obj = obj
-	elif (obj_node != null):
+	if (obj_node != null):
 		if (obj_node.get("can_interact")):
 			obj_node.follow = pickup_point
 			obj_node.can_interact = false
 			holding_obj_parent = obj_node.get_parent_node_3d()
 			obj_node.reparent(pickup_point)
 			holding_obj = obj_node
+			holding_obj.rotation = Vector3(0, 0, 0)
+			holding_obj.freeze = true
+			holding_obj.is_held = true
+			holding_obj.emit_signal("unfocused")
 
 func drop_obj():
-	pass
+	if (holding_obj == null):
+		return
+	
+	if (holding_obj.get("can_interact") != null):
+		holding_obj.follow = null
+		holding_obj.can_interact = true
+		holding_obj.rotation = Vector3(0, 0, 0)
+		holding_obj.freeze = false
+	
+	holding_obj.reparent(get_tree().root.get_node("World"))
+	var direction = -camera.global_transform.basis.z.normalized()
+	holding_obj.apply_central_impulse(direction * 4)
+	holding_obj.is_held = false
+	holding_obj = null
+	holding_obj_parent = null
 
 func delete_obj():
 	holding_obj.queue_free()

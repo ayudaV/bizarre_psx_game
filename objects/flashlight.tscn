@@ -13,7 +13,11 @@ size = Vector3(0.149109, 0.139221, 0.291809)
 [node name="flashlight" instance=ExtResource("4_qfl58")]
 script = ExtResource("2_hdot5")
 
+[node name="Flashlight_001" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.0047647334, 0.9999887, 0, -0.9999887, 0.0047647334, 0, 0.015035197, 0.13550788)
+
 [node name="Flashlight_002" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -0.07811108, -0.99694467, 0, 0.99694467, -0.07811108, 0, 0, -0.12574126)
 material_override = SubResource("ShaderMaterial_jnkn0")
 
 [node name="InteractionComponent" type="Node" parent="." index="2"]
@@ -26,8 +30,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.002
 shape = SubResource("BoxShape3D_bbi55")
 
 [node name="flashlight_light" type="SpotLight3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, -0.16787, 0.985809, 0, -0.985809, -0.16787, 0, 0, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 0.98608035, -0.1662696, 0, 0.1662696, 0.98608035, 0, 0, -0.12858066)
 light_energy = 2.443
 light_indirect_energy = 2.19
 light_volumetric_fog_energy = 1.132
