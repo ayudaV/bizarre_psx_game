@@ -20,6 +20,7 @@ const SENSIBILITY = 0.003
 @onready var quest_handler: QuestHandler = $camera_pivot/HUD/quests
 @onready var sweep_bar: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer/SweepBar
 @onready var sweep_box: VBoxContainer = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer
+@onready var dialogue_ui: Control = $camera_pivot/HUD/DialogueUI
 
 var holdable_objects = {}
 var holding_obj_parent: Node3D
@@ -200,7 +201,6 @@ func drop_obj():
 	if (holding_obj.get("can_interact") != null):
 		holding_obj.follow = null
 		holding_obj.can_interact = true
-		holding_obj.rotation = Vector3(0, 0, 0)
 		holding_obj.freeze = false
 	
 	holding_obj.reparent(get_tree().root.get_node("World"))

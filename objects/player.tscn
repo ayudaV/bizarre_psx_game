@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbal7dy0fqtxa"]
+[gd_scene load_steps=18 format=3 uid="uid://bbal7dy0fqtxa"]
 
 [ext_resource type="Script" uid="uid://btgs5uclw83oq" path="res://scripts/player.gd" id="1_xf4s3"]
 [ext_resource type="Shader" uid="uid://ddvibi2f7hyv8" path="res://shader/psx_camera_shader.gdshader" id="2_32gk2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://xmtvdn88fxpc" path="res://objects/scripts/quest_handler.gd" id="6_3rfka"]
 [ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="7_4vq5b"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="7_i8sra"]
+[ext_resource type="PackedScene" uid="uid://dm2uidna0mp50" path="res://scenes/dialogue_ui.tscn" id="8_4vq5b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hq2fm"]
 
@@ -82,7 +83,7 @@ mesh = SubResource("QuadMesh_bldmp")
 [node name="Node3D" type="Node3D" parent="camera_pivot/camera"]
 
 [node name="pickup_point" type="Node3D" parent="camera_pivot/camera/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329, -0.211, -0.422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45879948, -0.3928624, -0.422)
 
 [node name="HUD" type="Control" parent="camera_pivot"]
 layout_mode = 3
@@ -216,3 +217,6 @@ autowrap_mode = 0
 script = ExtResource("3_btdrp")
 context = NodePath("../interact_text/VBoxContainer/HBoxContainer/CenterContainer/Label")
 default_icon = ExtResource("4_n1vfi")
+
+[node name="DialogueUI" parent="camera_pivot/HUD" instance=ExtResource("8_4vq5b")]
+layout_mode = 1

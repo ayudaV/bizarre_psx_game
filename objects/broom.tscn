@@ -4,27 +4,30 @@
 [ext_resource type="Script" uid="uid://dn2eaprkg88q4" path="res://scripts/interaction_component.gd" id="1_x1s1u"]
 [ext_resource type="Script" uid="uid://dkqtm2fj42qhv" path="res://objects/scripts/broom_area.gd" id="2_uhwsu"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_t0d6m"]
-height = 1.1
-radius = 0.029296875
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uhwsu"]
+radius = 0.049316406
+height = 1.0737915
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_t0d6m"]
 top_radius = 0.01
 bottom_radius = 0.01
 height = 1.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_x1s1u"]
-height = 1.0
-radius = 0.05
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgpn8"]
+radius = 0.09375
+height = 1.012
 
 [node name="Broom" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_usbxc")
 item_name = "broom"
+quest = 3
+deny_text = "Não dá pra limpar o lugar com essas pessoas atrapalhando."
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CylinderShape3D_t0d6m")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.021881104, 0)
+shape = SubResource("CapsuleShape3D_uhwsu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_t0d6m")
@@ -34,7 +37,7 @@ script = ExtResource("2_uhwsu")
 metadata/_custom_type_script = "uid://dkqtm2fj42qhv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("CylinderShape3D_x1s1u")
+shape = SubResource("CapsuleShape3D_wgpn8")
 
 [node name="InteractionComponent" type="Node" parent="Area3D"]
 script = ExtResource("1_x1s1u")

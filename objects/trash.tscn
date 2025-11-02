@@ -17,6 +17,8 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_ir0rd")
 item_name = "trash"
+quest = 1
+deny_text = "Vai saber o que as pessoas jogam fora num lugar desses.."
 
 [node name="TrashBag012" parent="." instance=ExtResource("2_s8s1o")]
 
