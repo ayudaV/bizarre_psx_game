@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://wywiruyt506p"]
+
+[ext_resource type="Script" uid="uid://cd0dhhfgr8ng7" path="res://objects/scripts/porta.gd" id="1_xqdvm"]
+[ext_resource type="PackedScene" uid="uid://0rf322542u5n" path="res://models/map/door_01_com_frame.glb" id="2_rglsm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqdvm"]
+size = Vector3(0.35791016, 3.122879, 1.9963379)
+
+[node name="Porta" type="Node3D"]
+script = ExtResource("1_xqdvm")
+
+[node name="door_01_com_frame" parent="." instance=ExtResource("2_rglsm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08697128, -1.302507, 0.98496485)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052490234, 0.3493576, 0.98826647)
+shape = SubResource("BoxShape3D_xqdvm")
