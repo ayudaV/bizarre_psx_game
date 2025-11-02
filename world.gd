@@ -3,9 +3,11 @@ extends Node3D
 @onready var cutscene_handler: AnimationPlayer = $CutsceneHandler
 
 func _ready() -> void:
-	Global.pause = true
-	Transition.color_rect.modulate.a = 1.0
-	cutscene_handler.play("start")
+	Global.player.quest_handler.add_quest("Jogue o lixo fora", 5)
+	Global.current_quest = Global.quests.TRASH
+	#Global.pause = true
+	Transition.color_rect.modulate.a = 0.0
+	#cutscene_handler.play("start")
 
 func start():
 	Transition.fade_out(2.3, init_tutorial_dialogue)
@@ -21,6 +23,7 @@ func end_tutorial_dialogue():
 		$npcs/tutorial_npc.queue_free()
 		Global.player.quest_handler.add_quest("Jogue o lixo fora", 5)
 		Global.current_quest = Global.quests.TRASH
+		await get_tree().create_timer(0.7).timeout
 		Transition.fade_out(2.3, func(): 
 			Global.pause = false
 			)

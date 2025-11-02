@@ -122,12 +122,24 @@ transform = Transform3D(1, 0, 0, 0, 0.9845032, 0.17536671, 0, -0.17536671, 0.984
 [node name="Trash" type="Node3D" parent="pickables"]
 
 [node name="Trash" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3962742, 0.009788739, -2.2932315)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.460966, -1.8624164, 22.53355)
+
+[node name="Trash2" parent="pickables/Trash" instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7780967, -2.2644272, 23.368)
+
+[node name="Trash3" parent="pickables/Trash" instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.760269, -2.2644272, 23.817652)
+
+[node name="Trash4" parent="pickables/Trash" instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2318, -2.264427, 24.33339)
+
+[node name="Trash5" parent="pickables/Trash" instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0856743, -2.264427, 22.94106)
 
 [node name="interactables" type="Node3D" parent="."]
 
 [node name="TrashCan" parent="interactables" instance=ExtResource("6_dwbse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.646965, 0.49499, -3.4344826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.070517, -2.1630337, 21.635715)
 
 [node name="npcs" type="Node3D" parent="."]
 

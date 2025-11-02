@@ -27,5 +27,6 @@ func interact():
 		return
 	
 	if (can_interact && Global.player.can_hold):
+		$AudioStreamPlayer.play()
 		Global.player.hold_obj(item_name, self)
 		emit_signal("unfocused")

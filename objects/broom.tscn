@@ -3,15 +3,11 @@
 [ext_resource type="Script" uid="uid://baiv6xex0p4xd" path="res://objects/scripts/broom.gd" id="1_usbxc"]
 [ext_resource type="Script" uid="uid://dn2eaprkg88q4" path="res://scripts/interaction_component.gd" id="1_x1s1u"]
 [ext_resource type="Script" uid="uid://dkqtm2fj42qhv" path="res://objects/scripts/broom_area.gd" id="2_uhwsu"]
+[ext_resource type="PackedScene" uid="uid://owladysmgfyk" path="res://models/objects/vassoura.glb" id="4_wgpn8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uhwsu"]
 radius = 0.049316406
 height = 1.0737915
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_t0d6m"]
-top_radius = 0.01
-bottom_radius = 0.01
-height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgpn8"]
 radius = 0.09375
@@ -29,9 +25,6 @@ deny_text = "Não dá pra limpar o lugar com essas pessoas atrapalhando."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.021881104, 0)
 shape = SubResource("CapsuleShape3D_uhwsu")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CylinderMesh_t0d6m")
-
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("2_uhwsu")
 metadata/_custom_type_script = "uid://dkqtm2fj42qhv"
@@ -43,3 +36,6 @@ shape = SubResource("CapsuleShape3D_wgpn8")
 script = ExtResource("1_x1s1u")
 content = "Broom"
 metadata/_custom_type_script = "uid://dn2eaprkg88q4"
+
+[node name="vassoura" parent="." instance=ExtResource("4_wgpn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.717682, 0)
